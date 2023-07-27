@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -42,13 +40,13 @@ function App() {
   return (
     <>
       <form>
-        <label htmlFor="name">Word </label>
+        <label htmlFor="name">Enter Your Word Here </label>
         <input type="text" id="name" onChange={handleChange} value={word} />
         <input type="submit" value="Search" onClick={handleSubmit} />
       </form>
       <div>
         {error ? <p>There was an error</p> : null}
-        {synonyms.length === 0 ? <p>No synonyms found</p> : null}
+        {synonyms.length === 0 && word !== '' ? <p>No synonyms found</p> : null}
         <ul>
           {synonyms.map((synonym, index) => (
             <li key={index} onClick={handleClick}>{synonym}</li>
